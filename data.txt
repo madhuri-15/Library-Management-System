@@ -1,0 +1,63 @@
+// admin
+{
+    "email": "admin@library.com",
+    "password": "1234",
+    "is_admin": true
+}
+
+// users
+{
+    "email": "user1@example.com",
+    "password": "user1pass",
+    "is_admin": false
+}
+
+{
+    "email": "user2@example.com",
+    "password": "user2pass",
+    "is_admin": false
+}
+
+{
+    "email": "user3@example.com",
+    "password": "user3pass",
+    "is_admin": false
+}
+
+// books
+{
+    "title": "1984",
+    "author": "George Orwell",
+    "published_year": 1949
+}
+
+{
+    "title": "Harry Potter and the Goblet of Fire",
+    "author": "J K Rowling",
+    "published_year": 2000
+}
+
+{
+    "title": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "published_year": 1813
+}
+
+{
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "published_year": 1925
+}
+
+{
+    "title": "The Notebook",
+    "author": "Nicholas Spark",
+    "published_year": 1994
+}
+
+// Request
+{
+    "book_id": 1,
+    "start_date": "2024-12-10",
+    "end_date": "2024-12-20"
+}
