@@ -23,7 +23,7 @@ def add_user(data):
 
     return 200
 
-# Admin - SignUP
+# Admin - Sign up
 @app.route('/signup', methods=['POST'])
 def signup():
     data = request.json
@@ -65,7 +65,7 @@ def add_book(current_user):
 
     return jsonify({"message": "Book added successfully!"}), 200
 
-# Admin - View all books borrow requests.
+# Admin - View all book borrowing requests.
 @app.route('/requests', methods=['GET'])
 @token_required(admin_only=True)
 def view_requests(current_user):
@@ -98,7 +98,7 @@ def approve_request(current_user, request_id):
 
     if request_status == 'Pending':
     
-        # Check if others user already borrow books.
+        # Check if other users have already borrowed books.
         borrowed_books = Request.query.filter(
             Request.book_id == borrow_request.book.id,
             Request.status == 'Approved',
@@ -106,8 +106,6 @@ def approve_request(current_user, request_id):
             Request.start_date <= borrow_request.end_date,
             Request.end_date >= borrow_request.start_date
         ).first()
-
-        print(borrowed_books)
 
         if borrowed_books:
             borrow_request.status = 'Denied'
@@ -117,7 +115,7 @@ def approve_request(current_user, request_id):
     return jsonify({"message": f"Request {borrow_request.status.lower()}!"})
 
 
-# Admin - View user's books borrow history.
+# Admin - View user's book borrowing history.
 @app.route('/users/<int:user_id>/history', methods=['GET'])
 @token_required(admin_only=True)
 def view_user_borrow_history(current_user, user_id):
